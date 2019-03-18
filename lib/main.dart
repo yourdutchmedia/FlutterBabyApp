@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.amber[900]),
       home: Scaffold(
         appBar: new AppBar(
-          // Title
           title: new Text("Baby App"),
         ),
         body: BodyContent(), //From bodycontent.dart
