@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() => runApp(MyApp());
+
+AudioCache player = new AudioCache();
 
 class MyApp extends StatelessWidget {
   String _debugString = 'Origenele tekst';
@@ -23,6 +26,7 @@ class MyApp extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   // ******************** Hier word de code uitgevoerd zodra de foto word aangeraakt ********************
+                  player.play('ShhhSoundeffect.mp3');
                   _debugString = 'onTap werkt!!!!!';
                   print(_debugString);
                 },
