@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
+
+import './bodycontent.dart';
 
 void main() => runApp(MyApp());
 
-AudioCache player = new AudioCache();
-
 class MyApp extends StatelessWidget {
-  String _debugString = 'Origenele tekst';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,47 +17,7 @@ class MyApp extends StatelessWidget {
           // Title
           title: new Text("Baby App"),
         ),
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  // ******************** Hier word de code uitgevoerd zodra de foto word aangeraakt ********************
-                  player.play('ShhhSoundeffect.mp3');
-                  _debugString = 'onTap werkt!!!!!';
-                  print(_debugString);
-                },
-                child: Image.asset('images/shhh.png'),
-              ),
-              ButtonBar(
-                alignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  RaisedButton(
-                    child: Text('5 MIN'),
-                    onPressed: () => {
-                          _debugString = 'Knop 1 Werkt',
-                          debugPrint(_debugString),
-                        },
-                  ),
-                  RaisedButton(
-                    child: Text('10 MIN'),
-                    onPressed: () => {
-                          _debugString = 'Knop 2 Werkt',
-                          debugPrint(_debugString),
-                        },
-                  ),
-                  RaisedButton(
-                    child: Text('15 MIN'),
-                    onPressed: () => {
-                          _debugString = 'Knop 3 Werkt',
-                          debugPrint(_debugString),
-                        },
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        body: BodyContent(), //From bodycontent.dart
       ),
     );
   }
