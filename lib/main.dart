@@ -6,8 +6,6 @@ import './bodycontent.dart';
 
 void main() => runApp(MyApp());
 
-
-
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -21,31 +19,32 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        // theme: darkTheme ? ThemeData.dark() : ThemeData.light();
-        appBar: new AppBar(
-          title: new Text("Baby App"),
-        ),
-        body: BodyContent(), //From bodycontent.dart
-        drawer: Drawer(
-         child: ListView(
-          children: <Widget>[
-           ListTile(
-           title: Text("Dark Theme"),
-            trailing: Switch
-            (value: darkTheme, onChanged: (changed) {
-            setState(()
-            {darkTheme = changed;
-                 },
-               );
-             },
+        home: Scaffold(
+          // theme: darkTheme ? ThemeData.dark() : ThemeData.light();
+          appBar: new AppBar(
+            title: new Text("Baby App"),
+          ),
+          body: BodyContent(), //From bodycontent.dart
+          drawer: Drawer(
+            child: ListView(
+              children: <Widget>[
+                ListTile(
+                  title: Text("Dark Theme"),
+                  trailing: Switch(
+                    value: darkTheme,
+                    onChanged: (changed) {
+                      setState(
+                        () {
+                          darkTheme = changed;
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-           ),
-         ],
+          ),
         ),
-       ),
-      ),
-    theme: darkTheme ? ThemeData.dark() : ThemeData.light()
-    ); 
+        theme: darkTheme ? ThemeData.dark() : ThemeData.light());
   }
 }
