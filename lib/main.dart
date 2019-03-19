@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import './bodycontent.dart';
 
+import './drawer.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,7 +19,9 @@ class MyApp extends StatelessWidget {
           title: new Text("Baby App"),
         ),
         body: BodyContent(), //From bodycontent.dart
-      ),
-    );
+         drawer: Drawer(),
+
+        )
+    );  
   }
 }
