@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './gesturedetector..dart';
+import './gesturedetector.dart';
 
 class BodyContent extends StatelessWidget {
   BodyContent();

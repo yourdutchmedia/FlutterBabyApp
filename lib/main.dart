@@ -2,26 +2,50 @@ import 'package:flutter/material.dart';
 
 import './bodycontent.dart';
 
-import './drawer.dart';
+// import './drawer.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+
+
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  bool darkTheme = true;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.grey,
-          accentColor: Colors.amber[900]),
       home: Scaffold(
+        // theme: darkTheme ? ThemeData.dark() : ThemeData.light();
         appBar: new AppBar(
           title: new Text("Baby App"),
         ),
         body: BodyContent(), //From bodycontent.dart
-         drawer: Drawer(),
-
-        )
-    );  
+        drawer: Drawer(
+         child: ListView(
+          children: <Widget>[
+           ListTile(
+           title: Text("Dark Theme"),
+            trailing: Switch
+            (value: darkTheme, onChanged: (changed) {
+            setState(()
+            {darkTheme = changed;
+                 },
+               );
+             },
+            ),
+           ),
+         ],
+        ),
+       ),
+      ),
+    theme: darkTheme ? ThemeData.dark() : ThemeData.light()
+    ); 
   }
 }
