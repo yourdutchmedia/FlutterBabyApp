@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import './bodycontent.dart';
 
-// import './drawer.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -20,7 +18,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-          // theme: darkTheme ? ThemeData.dark() : ThemeData.light();
           appBar: new AppBar(
             title: new Text("Baby App"),
           ),
@@ -43,7 +40,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ],
             ),
-          ),
+          ), 
         ),
         theme: darkTheme ? ThemeData.dark() : ThemeData.light());
   }
