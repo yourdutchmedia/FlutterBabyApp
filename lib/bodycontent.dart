@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:audioplayer2/audioplayer2.dart';
 
 import './gesturedetector.dart';
 
+AudioPlayer audioPlayer = new AudioPlayer();
+
 class BodyContent extends StatefulWidget {
-  int getal=3;
   BodyContent();
   @override
   State<StatefulWidget> createState() {
@@ -16,22 +18,60 @@ class BodyContent extends StatefulWidget {
 class _bodyState extends State<BodyContent> {
   Timer _timer;
   int _start = 5;
+  int _start2 = 10;
+  int _start3 = 12;
 
-  bool isTimer = false;
+// 3 TIMER FUNCTIONS ONE FOR EACH BUTTON
 
   void startTimer() {
-    const oneMin = const Duration(minutes: 1);
+    const oneSec = const Duration(seconds: 1);
     _timer = new Timer.periodic(
-        oneMin,
-        (Timer timer) => setState(() {
+      oneSec,
+      (Timer timer) => setState(
+            () {
               if (_start < 1) {
                 timer.cancel();
-                isTimer = false;
-              } else {
+                _start = 5;
+              } else if (_start <= 5) {
                 _start = _start - 1;
-                isTimer = true;
               }
-            }));
+            },
+          ),
+    );
+  }
+
+  void startTimer2() {
+    const oneSec = const Duration(seconds: 1);
+    _timer = new Timer.periodic(
+      oneSec,
+      (Timer timer) => setState(
+            () {
+              if (_start2 < 1) {
+                timer.cancel();
+                _start2 = 10;
+              } else if (_start2 <= 10) {
+                _start2 = _start2 - 1;
+              }
+            },
+          ),
+    );
+  }
+
+  void startTimer3() {
+    const oneSec = const Duration(seconds: 1);
+    _timer = new Timer.periodic(
+      oneSec,
+      (Timer timer) => setState(
+            () {
+              if (_start3 < 1) {
+                timer.cancel();
+                _start3 = 12;
+              } else if (_start3 <= 12) {
+                _start3 = _start3 - 1;
+              }
+            },
+          ),
+    );
   }
 
   @override
@@ -40,28 +80,36 @@ class _bodyState extends State<BodyContent> {
     super.dispose();
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: <Widget>[
-          GesDetector(), //From gesturedetector.dart
+          GestureDetector(
+            onTap: () {
+              Future<void> play() async {
+                 await audioPlayer.play('../assets/ShhhSoundeffect.mp3');
+                 setState(() => playerState = PlayerState.playing);
+              }
+            },
+            child: Image.asset('images/shhh.png'),
+          ), //From gesturedetector.dart
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               RaisedButton(
-                child: Text('$_start' + ' MIN'),
-                onPressed: () => {
-                  startTimer()
-                },
+                child: Text('$_start' + ' SEC'),
+                onPressed: () => {startTimer()},
               ),
               RaisedButton(
-                child: Text('10 MIN'),
-                onPressed: () => {},
+                child: Text('$_start2' + ' SEC'),
+                onPressed: () => {startTimer2()},
               ),
               RaisedButton(
-                child: Text('15 MIN'),
-                onPressed: () => {},
+                child: Text('$_start3' + ' SEC'),
+                onPressed: () => {startTimer3()},
               ),
             ],
           ),
@@ -70,3 +118,6 @@ class _bodyState extends State<BodyContent> {
     );
   }
 }
+
+
+
