@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:audioplayers/audio_cache.dart';
 
 import './gesturedetector.dart';
+
+AudioCache player = new AudioCache();
 
 class BodyContent extends StatefulWidget {
   int getal = 3;
@@ -33,6 +36,7 @@ class _bodyState extends State<BodyContent> {
                 isTimer = false;
               } else {
                 _start = _start - 1;
+                // player.play('ShhhSoundeffect.mp3');
                 isTimer = true;
               }
             },
@@ -54,6 +58,7 @@ class _bodyState extends State<BodyContent> {
                 _start2 = _start2 - 1;
                 isTimer = true;
               }
+              
             },
           ),
     );
@@ -71,6 +76,7 @@ class _bodyState extends State<BodyContent> {
                 isTimer = false;
               } else {
                 _start3 = _start3 - 1;
+                player.play('ShhhSoundeffect.mp3');
                 isTimer = true;
               }
             },
@@ -89,7 +95,7 @@ class _bodyState extends State<BodyContent> {
     return Center(
       child: Column(
         children: <Widget>[
-          GesDetector(), //From gesturedetector.dart
+          // GesDetector(), //From gesturedetector.dart
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
