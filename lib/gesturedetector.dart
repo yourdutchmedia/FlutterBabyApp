@@ -16,10 +16,4 @@ class GesDetector extends StatelessWidget {
   }
 }
 
-// if (pressed) {
-//           player.play('ShhhSoundeffect.mp3');
-//           pressed = false;
-//         } else if (!pressed) {
-//           player.clear('ShhhSoundeffect.mp3');
-//           pressed = true;
-//         }
+
