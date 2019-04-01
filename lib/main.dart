@@ -102,12 +102,12 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 RaisedButton(
-                  child: Text('30 seconds'),
+                  child: Text('5 minutes'),
                   onPressed: () {
                     setState(() {
                       countdownTimer = null;
                       countdownTimer = CountdownTimer(
-                        timerDuration: 30,
+                        timerDuration: 300,
                       );
                     });
                   },
@@ -116,12 +116,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: new BorderRadius.circular(30.0)),
                 ),
                 RaisedButton(
-                  child: Text('1 minute'),
+                  child: Text('10 minutes'),
                   onPressed: () {
                     setState(() {
                       countdownTimer = null;
+
                       countdownTimer = CountdownTimer(
-                        timerDuration: 60,
+                        timerDuration: 600,
                       );
                     });
                   },
@@ -130,12 +131,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: new BorderRadius.circular(30.0)),
                 ),
                 RaisedButton(
-                  child: Text('2 minutes'),
+                  child: Text('15 minutes'),
                   onPressed: () {
                     setState(() {
                       countdownTimer = null;
                       countdownTimer = CountdownTimer(
-                        timerDuration: 120,
+                        timerDuration: 900,
                       );
                     });
                   },
