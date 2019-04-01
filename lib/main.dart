@@ -120,7 +120,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     setState(() {
                       countdownTimer = null;
-
                       countdownTimer = CountdownTimer(
                         timerDuration: 600,
                       );

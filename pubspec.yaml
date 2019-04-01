@@ -28,6 +28,8 @@ flutter_icons:
   android: "launcher_icon" 
   ios: true
   image_path: "images/ic_launcher.png"
+  adaptive_icon_background: "#fff"
+  adaptive_icon_foreground: "images/ic_launcher.png"
   # image_path: "images/ic_launcher2.png"
 
 dev_dependencies:
