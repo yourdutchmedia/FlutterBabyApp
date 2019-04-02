@@ -53,8 +53,8 @@ class CountdownTimerState extends State<CountdownTimer>
 
     player.onAudioPositionChanged.listen((Duration p) {
       if (p.inSeconds == widget.timerDuration) {
-          player.stop();
-        }
+        player.stop();
+      }
     });
   }
 
@@ -113,14 +113,23 @@ class CountdownTimerState extends State<CountdownTimer>
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        AnimatedBuilder(
-                            animation: controller,
-                            builder: (BuildContext context, Widget child) {
-                              return Text(
-                                timerString,
-                                style: themeData.textTheme.display4,
-                              );
-                            }),
+                        Center(child:
+                          Container(child: 
+                            AnimatedBuilder(
+                              animation: controller,
+                              builder: (BuildContext context, Widget child) {
+                                return Text(
+                                  timerString,
+                                  style: themeData.textTheme.display4,
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                        Container(
+                          transform: Matrix4.translationValues(0.0, -10.0, 0.0),
+                          child: Text('Press here to start'),
+                        )
                       ],
                     ),
                   ),
@@ -163,3 +172,4 @@ class TimerPainter extends CustomPainter {
         backgroundColor != old.backgroundColor;
   }
 }
+
